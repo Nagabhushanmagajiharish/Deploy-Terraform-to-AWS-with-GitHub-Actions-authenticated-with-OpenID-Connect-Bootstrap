@@ -10,6 +10,12 @@ provider "aws" {
   region = var.aws_region
 }
 
+resource "aws_iam_openid_connect_provider" "github" {
+  url = "https://token.actions.githubusercontent.com"
+
+  client_id_list = ["sts.amazonaws.com"]
+}
+
 resource "aws_s3_bucket" "example" {
   bucket = "bushan-tf-test-bucket"
 
@@ -25,7 +31,7 @@ data "aws_iam_policy_document" "github_oidc" {
 
     principals {
       type        = "Federated"
-      identifiers = ["arn:aws:iam::061039787667:oidc-provider/token.actions.githubusercontent.com"]
+      identifiers = [aws_iam_openid_connect_provider.github.arn]
     }
 
     actions = ["sts:AssumeRoleWithWebIdentity"]
