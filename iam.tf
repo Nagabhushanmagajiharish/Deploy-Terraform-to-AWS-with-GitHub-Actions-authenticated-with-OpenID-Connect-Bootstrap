@@ -35,14 +35,8 @@ data "aws_iam_policy_document" "github_actions_permissions" {
       "s3:CreateBucket",
       "s3:DeleteBucket",
       "s3:DeleteBucket*",
-      "s3:GetBucket*",
-      "s3:PutBucket*",
-      "s3:GetEncryptionConfiguration",
-      "s3:PutEncryptionConfiguration",
-      "s3:GetLifecycleConfiguration",
-      "s3:PutLifecycleConfiguration",
-      "s3:GetReplicationConfiguration",
-      "s3:PutReplicationConfiguration",
+      "s3:Get*",
+      "s3:Put*",
       "s3:ListBucket"
     ]
 
