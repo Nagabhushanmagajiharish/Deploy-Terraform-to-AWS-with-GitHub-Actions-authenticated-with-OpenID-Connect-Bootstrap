@@ -8,7 +8,7 @@ data "aws_iam_policy_document" "github_actions_permissions" {
     ]
 
     resources = [
-      aws_s3_bucket.tf_state.arn
+      "arn:aws:s3:::${var.terraform_state_bucket_name}"
     ]
   }
 
@@ -23,7 +23,7 @@ data "aws_iam_policy_document" "github_actions_permissions" {
     ]
 
     resources = [
-      "${aws_s3_bucket.tf_state.arn}/*"
+      "arn:aws:s3:::${var.terraform_state_bucket_name}/*"
     ]
   }
 
