@@ -8,7 +8,6 @@ output "github_oidc_provider_arn" {
   value       = aws_iam_openid_connect_provider.github.arn
 }
 
-output "s3_bucket_name" {
-  description = "Name of the demo S3 bucket."
-  value       = aws_s3_bucket.example.id
+output "terraform_state_bucket_name" {
+  value = aws_s3_bucket.tf_state.bucket
 }

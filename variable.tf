@@ -15,3 +15,15 @@ variable "github_repo" {
   type        = string
   default     = "Deploy-Terraform-to-AWS-with-GitHub-Actions-authenticated-with-OpenID-Connect"
 }
+
+variable "terraform_state_bucket_name" {
+  description = "S3 bucket used for Terraform remote state."
+  type        = string
+  default     = "my-project-oidc"
+}
+
+variable "app_bucket_name" {
+  description = "Application bucket managed by the infra stack."
+  type        = string
+  default     = "nagabhushan-oidc-app-061039787667-01"
+}
